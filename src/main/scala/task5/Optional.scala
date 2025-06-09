@@ -64,3 +64,9 @@ object Optionals:
     def map[A, B](optional: Optional[A], f: A => B): Optional[B] = optional match
       case Maybe(x) => Maybe(f(x))
       case _ => Empty()
+
+
+
+    def filter[A](optional: Optional[A])(predicate: A => Boolean): Optional[A] = optional match
+      case Maybe(x) if predicate(x) => Maybe(x)
+      case _ => Empty()

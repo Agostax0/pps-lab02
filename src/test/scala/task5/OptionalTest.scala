@@ -37,3 +37,10 @@ class OptionalTest:
     val result = Optional.map(nonEmpty, _ + 1)
     assertEquals(1, Optional.orElse(result, 1))
   }
+
+
+  @Test def filter(): Unit = {
+    assertEquals(Optional.filter(Optional.Maybe(5))(_ > 2), Optional.Maybe(5))
+  }
+
+
