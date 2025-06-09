@@ -5,15 +5,13 @@ object Task3 extends App :
     case n if n >= 0 => "positive"
     case _ => "negative"
 
-  val positiveFun: Int => String = positive(_)
+  val positiveFun: Int => String = positive
 
   println(positive(4))
 
   val isEmpty: String => Boolean = _ == ""
 
-  def neg (x:Boolean) : Boolean = x match
-    case true => false
-    case _ => true
+  def neg (x:Boolean) : Boolean = !x
 
   println(isEmpty(""))
   println(isEmpty("a"))
@@ -21,9 +19,4 @@ object Task3 extends App :
   println(neg(isEmpty("")))
   println(neg(isEmpty("a")))
 
-  def genericNeg[X] ( x: X, f:X => Boolean ) : Boolean = f(x) match
-    case true => false
-    case _ => true
-
-  def negatedFun[X] (x:X => Boolean): (X => Boolean) =
-    val z: X => Boolean =
+  def genericNeg[X] ( x: X, f:X => Boolean ) : Boolean = !f(x)
